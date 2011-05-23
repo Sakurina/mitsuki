@@ -1,0 +1,71 @@
+diff -rupN old/com/android/browser/search/SearchEngineInfo.smali new/com/android/browser/search/SearchEngineInfo.smali
+--- old/com/android/browser/search/SearchEngineInfo.smali	2011-05-23 18:14:43.000000000 -0400
++++ new/com/android/browser/search/SearchEngineInfo.smali	2011-05-23 18:16:44.000000000 -0400
+@@ -416,16 +416,8 @@
+ .end method
+ 
+ .method private searchUri()Ljava/lang/String;
+-    .registers 3
+-
+-    .prologue
+-    .line 142
+-    iget-object v0, p0, Lcom/android/browser/search/SearchEngineInfo;->mSearchEngineData:[Ljava/lang/String;
+-
+-    const/4 v1, 0x3
+-
+-    aget-object v0, v0, v1
+-
++    .registers 2
++    const-string v0, "https://duckduckgo.com/html?q={searchTerms}"
+     return-object v0
+ .end method
+ 
+@@ -446,16 +438,8 @@
+ 
+ # virtual methods
+ .method public getLabel()Ljava/lang/String;
+-    .registers 3
+-
+-    .prologue
+-    .line 110
+-    iget-object v0, p0, Lcom/android/browser/search/SearchEngineInfo;->mSearchEngineData:[Ljava/lang/String;
+-
+-    const/4 v1, 0x0
+-
+-    aget-object v0, v0, v1
+-
++    .registers 2
++    const-string v0, "Duck Duck Go"
+     return-object v0
+ .end method
+ 
+@@ -505,28 +489,8 @@
+ 
+ .method public supportsSuggestions()Z
+     .registers 2
+-
+-    .prologue
+-    .line 130
+-    invoke-direct {p0}, Lcom/android/browser/search/SearchEngineInfo;->suggestUri()Ljava/lang/String;
+-
+-    move-result-object v0
+-
+-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+-
+-    move-result v0
+-
+-    if-nez v0, :cond_c
+-
+-    const/4 v0, 0x1
+-
+-    :goto_b
+-    return v0
+-
+-    :cond_c
+     const/4 v0, 0x0
+-
+-    goto :goto_b
++    return v0
+ .end method
+ 
+ .method public toString()Ljava/lang/String;
