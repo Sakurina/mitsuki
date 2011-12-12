@@ -10,7 +10,9 @@ This was mostly made to scratch my own itch; I wanted to replace the Honeycomb b
 * Java (to run [smali/baksmali][1])
 * Android SDK
 
-For what it's worth, this was all tested and developed on a late 2010 MacBook Air running OS X 10.6.7.
+For what it's worth, this was all tested and developed on a late 2010 MacBook Air running OS X 10.6.7. This has only been tested with the Honeycomb browser apk and odex files up to now.
+
+**UPDATE:** Some new dalvik opcodes were added in Android 3.1 that keep smali and baksmali from working properly. Please take this into consideration.
 
 ## Scripts
 * *prepare.sh*: Automatically pulls down dependencies require to disassemble, disassembles the apk + odex specified in the config file.
